@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\estudiante;
+use App\Http\Requests\UpdateEstudianteRequest;
 use App\tblestudiante;
 use Illuminate\Http\Request;
 use TblestudianteSeeder;
@@ -61,9 +62,15 @@ class TblestudianteController extends Controller
      * @param  \App\tblestudiante  $tblestudiante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tblestudiante $tblestudiante)
+    public function update(UpdateEstudianteRequest $request, tblestudiante $estudiante)
     {
-        //
+        $datos = $request->all();
+        $estudiante->update($datos);
+
+        return response()->json([
+            'res' => true,
+            'mensaje' => 'datos actualizados'
+        ], 200);
     }
 
     /**

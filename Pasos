@@ -27,6 +27,18 @@
 7. Para ver las rutas 
     php artisan route:list
 
+    //OJO// para que show y update tomen el id lo que seria estudiante/1
+    debe tener como parametro el mismo nombre de variable que la ruta que le
+    asigna laravel
+
 8. Para ejecutar el servidor
     php artisan serve
+
+9. Para validaciones en metodos post para store y update
+    php artisan make:request UpdateEstudianteRequest
+
+    El archivo creado esta en app/http/requests
+    Se utiliza en lugar de request en el parametro de update
+
+
 

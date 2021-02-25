@@ -18,7 +18,7 @@ class CreateTblestudiantesTable extends Migration
             $table->id();
             // primero el nombre del campo y luego se le pueden pasar parametros
             // Como por ejemplo las restricciones de las tablas
-            $table->string('nombre')->unique();
+            $table->string('nombre')->nullable();
             $table->boolean('activo')->nullable();
 
             // esta linea crea 2 columnas de auditoria updated_at y delete_at
