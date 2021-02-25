@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\estudiante;
 use App\tblestudiante;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class TblestudianteController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes = tblestudiante::all();
+        return $estudiantes;
     }
 
     /**
@@ -24,7 +26,8 @@ class TblestudianteController extends Controller
      */
     public function create()
     {
-        //
+        // asi como en symfony, este metodo la idea es devolver el formulario para
+        // ingreso de datos a guardar
     }
 
     /**
@@ -35,7 +38,10 @@ class TblestudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // destinado para guardar nuevos datos
+
+        $estudiante = tblestudiante::create($request->all());
+        return $estudiante;
     }
 
     /**
