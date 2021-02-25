@@ -24,5 +24,9 @@
     Se crean los controladores con metodos predefinidos, las explicaciones 
     mas detalladas estan en ese archivo.
 
-7. 
+7. Para ver las rutas 
+    php artisan route:list
+
+8. Para ejecutar el servidor
+    php artisan serve
 
