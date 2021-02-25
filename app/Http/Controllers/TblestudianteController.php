@@ -55,13 +55,6 @@ class TblestudianteController extends Controller
         return $estudiante;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\tblestudiante  $tblestudiante
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateEstudianteRequest $request, tblestudiante $estudiante)
     {
         $datos = $request->all();
@@ -73,14 +66,21 @@ class TblestudianteController extends Controller
         ], 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\tblestudiante  $tblestudiante
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(tblestudiante $tblestudiante)
+    // para borrar el registro
+    // aunque no se borra, solo pasa a inactivo
+    public function destroy(tblestudiante $estudiante)
     {
-        //
+        if (tblestudiante::destroy($estudiante->id)){
+            return response()->json([
+                'res' => true,
+                'mensaje' => 'borrado'
+            ], 200);
+        } else {
+            return response()->json([
+                'res' => false,
+                'mensaje' => 'error'
+            ], 200);
+        }
+        
     }
 }
