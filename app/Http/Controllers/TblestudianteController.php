@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\estudiante;
 use App\tblestudiante;
 use Illuminate\Http\Request;
+use TblestudianteSeeder;
 
 class TblestudianteController extends Controller
 {
@@ -13,21 +14,15 @@ class TblestudianteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $estudiantes = tblestudiante::all();
-        return $estudiantes;
-    }
+        if($request->has('txtBuscar')){
+            $estudiantes = tblestudiante::where('nombre', 'like', '%' . $request->txtBuscar . '%')->get();
+        } else {
+            $estudiantes = tblestudiante::all();
+        }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // asi como en symfony, este metodo la idea es devolver el formulario para
-        // ingreso de datos a guardar
+        return $estudiantes;
     }
 
     /**
@@ -40,8 +35,11 @@ class TblestudianteController extends Controller
     {
         // destinado para guardar nuevos datos
 
-        $estudiante = tblestudiante::create($request->all());
-        return $estudiante;
+        tblestudiante::create($request->all());
+        return response()->json([
+            'res' => true,
+            'mensaje' => 'datos guardados'
+        ], 200);
     }
 
     /**
@@ -50,20 +48,10 @@ class TblestudianteController extends Controller
      * @param  \App\tblestudiante  $tblestudiante
      * @return \Illuminate\Http\Response
      */
-    public function show(tblestudiante $tblestudiante)
+    public function show(tblestudiante $estudiante)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\tblestudiante  $tblestudiante
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(tblestudiante $tblestudiante)
-    {
-        //
+        // para mostrar un solo registro
+        return $estudiante;
     }
 
     /**

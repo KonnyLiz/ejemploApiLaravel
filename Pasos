@@ -1,0 +1,28 @@
+1. Ejecutar en comandos 
+    composer create-project laravel/laravel ejemplo "7.*"
+
+    Creara la carpeta con todos los archivos.
+
+2. se crea una BD, pero solo el nombre
+
+3. Se agregan los datos de la BD en el archivo .env de laravel
+
+4. Para crear una talbla con el comando
+    php artisan make:model tblestudiante -a 
+
+    Creara los archivos model, controller y migrations para la BD
+
+    ** En database/migrate se anaden los campos de la tabla
+
+    ** En app se encontrara un archivo model, donde agregaremosm los campos editables 
+       y los campos ocultos
+
+5. Para hacer migraciones y escribir BD
+    php artisan migrate
+
+6. Para los controladores
+    Se crean los controladores con metodos predefinidos, las explicaciones 
+    mas detalladas estan en ese archivo.
+
+7. 
+
