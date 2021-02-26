@@ -44,5 +44,8 @@
     ** Importamos la BD a MySQL
     ** Hacemos la conexion en .env
     ** Creamos un modelo para cada tabla con
-        php artisan make:model nombre -a
+        php artisan make:model nombre
+    ** Creamos manualmente la insercion de datos
+    ** Puede dar error si no se encuentran los campos create_at y update_at
+    
 
