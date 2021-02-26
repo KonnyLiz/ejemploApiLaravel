@@ -4,14 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class categoria extends Model
+class Productos extends Model
 {
     // solo esta linea ocupa para hacerla manual
-    protected $table = 'categoria';
+    protected $table = 'productos';
 
     protected $fillable = [
+        'id_categoria',
+        'id_stock',
         'nombre',
-        'estado'
+        'descripcion',
+        'estado',
+        'id_marca'
     ];
 
     // escribimos los campos que queremos ocultar
@@ -20,8 +24,7 @@ class categoria extends Model
         'updated_at'
     ];
 
-    public function productos(){
-        // puede tener muchos productos cada cat
-        return $this->hasMany(Productos::class);
+    public function categoria(){
+        return $this->belongsTo(categoria::class, 'id_categoria');
     }
 }

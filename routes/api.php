@@ -21,3 +21,4 @@ use Illuminate\Support\Facades\Route;
 // nombre del conjunto de ruta, y apunta al controlador
 Route::apiResource('estudiantes', 'TblestudianteController');
 Route::apiResource('categorias', 'CategoriaController');
+Route::apiResource('productos', 'ProductosController');

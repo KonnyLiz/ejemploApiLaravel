@@ -27,6 +27,8 @@ class CategoriaController extends Controller
     }
 
     public function index(){
-        return categoria::all();
+        // usando la relacion uno a muchos en la tabla categoria y productos
+        $cat = categoria::find(1);
+        return $cat->productos;
     }
 }
