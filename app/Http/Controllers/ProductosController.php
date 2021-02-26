@@ -10,12 +10,8 @@ class ProductosController extends Controller
 
     public function index(){
         $p = Productos::first();
-        return response()->json([
-            'res' => true,
-            'mensaje' => [
-                'producto' => $p,
-                'categoriaInfo' => $p->categoria
-            ]
-        ], 200);
+        return response()->json(
+            array($p)
+        , 200);
     }
 }
